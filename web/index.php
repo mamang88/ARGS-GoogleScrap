@@ -31,7 +31,7 @@ function getKeywordSuggestionsFromGoogle($keyword) {
 
 function test_input($data) {
   $text = trim($data);
-  $text = stripslashes($text);
+  //$text = stripslashes($text);
   $textAr = explode("\n", $text);
   $textAr = array_filter($textAr, 'trim'); // remove any extra \r characters left behind
   return $textAr;
