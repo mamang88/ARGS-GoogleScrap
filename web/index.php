@@ -89,9 +89,10 @@ function array_to_csv_download($array, $filename = "export.csv") {
     // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
     $f = fopen('php://output', 'w');
 
-    foreach ($array as $line) {
-      echo $line;
-        fputcsv($f, $line);
+    foreach ($array as $lines) {
+      foreach ($lines as $line){ 
+         fputcsv($f, $line);
+      }
     }
   }   
 
