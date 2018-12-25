@@ -67,9 +67,9 @@
 				array_push($newarray, $val);
 			}
 		}
+		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-		$tarray=array();
 		if ( isset($_POST["download"]) ) {
 			if(!empty($tarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
 			}
