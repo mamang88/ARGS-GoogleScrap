@@ -63,12 +63,10 @@ function process_uploadfile($csv){
       $keywords=$lines[0];
       $kws=getKeywordSuggestionsFromGoogle($keywords);
       array_shift($kws);
-      array_push($lines,$kws);
-      array_push($newarray, $lines);
+      array_push($newarray,$lines);
+      array_push($newarray, $kws);
   }
-  echo $newarray[0];
-  echo $newarray[1];
-  echo $newarray[2];
+  echo $newarray;
 }
 
 function test_input($data) {
