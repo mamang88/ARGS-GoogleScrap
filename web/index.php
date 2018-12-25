@@ -44,16 +44,13 @@ if ( isset($_POST["submit"]) ) {
              echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
              echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 
-                 //if file already exists
-             if (file_exists("tmp/" . $_FILES["file"]["name"])) {
-            echo $_FILES["file"]["name"] . " already exists. ";
-             }
-             else {
-                    //Store file in directory "tmp" with the name of "tmped_file.txt"
-            $storagename = "tmped_file.txt";
-            move_uploaded_file($_FILES["file"]["tmp_name"], "tmp/" . $storagename);
-            echo "Stored in: " . "tmp/" . $_FILES["file"]["name"] . "<br />";
+            $fh = fopen($_FILES['file']['tmp_name'], 'r+');
+
+            $lines = array();
+            while( ($row = fgetcsv($fh, 8192)) !== FALSE ) {
+              $lines[] = $row;
             }
+            var_dump($lines);
         }
      } else {
              echo "No file selected <br />";
