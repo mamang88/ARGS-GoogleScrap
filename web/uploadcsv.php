@@ -50,7 +50,6 @@
 			fputcsv($f, $result);
 		}
 		fclose($f);
-		die();
 	}
 
 	function process_uploadfile($csv){
@@ -71,6 +70,7 @@
 		$tarray= array_merge($tarray,$newarray);
 		array_to_csv_download($tarray,$_FILES["file"]["name"]);
 		echo "successfully downloaded";
+		die();
 }
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
