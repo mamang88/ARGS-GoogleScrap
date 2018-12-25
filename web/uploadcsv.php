@@ -66,10 +66,10 @@
 				array_push($newarray, $val);
 			}
 		}
-		print_r($newarray);
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
+		print_r($tarray);
 		array_to_csv_download($tarray,$_FILES["file"]["name"]);
 		echo "successfully downloaded";
 }
