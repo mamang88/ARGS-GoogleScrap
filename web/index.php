@@ -21,11 +21,12 @@ $comment =  "";
   }
 function getKeywordSuggestionsFromGoogle($keyword) {
     $keywords = array();
+    echo "masuk ke getkeywords: ".$keywords.'<br>';
     $data = file_get_contents('http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.urlencode($keyword));
     if (($data = json_decode($data, true)) !== null) {
         $keywords = $data[1];
     }
-
+    echo "hasil getcontent: ".$keywords.'<br>';
     return $keywords;
 }
 if ( isset($_POST["submit"]) ) {
@@ -61,9 +62,9 @@ function process_uploadfile($csv){
   $newarray=array();
   foreach($csv as $lines){
       $kwd=$lines[0];
-      echo $kwd."<br>";
+      echo "base kw:".$kwd."<br>";
       $kw=getKeywordSuggestionsFromGoogle($kwd);
-      echo $kw."<br>";
+      echo "output terima:".$kw."<br>";
       //array_shift($kws);
       array_push($newarray,$lines);
       //echo $newarray;
