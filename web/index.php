@@ -71,9 +71,13 @@ function process_uploadfile($csv){
         array_push($newarray, $kws);
       }
   }
-  print_r ($newarray[0]);
-  print_r ($newarray[1]);
-  print_r ($newarray[2]);
+  foreach ($newarray as $line) {
+    foreach ($line as $value) {
+      echo $values."<br>";
+    }
+  }
+  
+ 
 
 }
 
