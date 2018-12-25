@@ -72,9 +72,7 @@ function process_uploadfile($csv){
       }
   }
   foreach ($newarray as $line) {
-    foreach ($line as $value) {
-      echo $values."<br>";
-    }
+    echo $line."<br>";
   }
   
  
