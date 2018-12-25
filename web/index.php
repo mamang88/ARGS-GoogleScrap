@@ -59,7 +59,7 @@ if ( isset($_POST["submit"]) ) {
              echo "No file selected <br />";
      }
 }
-if ( $file = fopen( "tmp/" . $storagename , r ) ) {
+if ( $file = fopen( "tmp/" . $storagename , 'r+' ) ) {
 
     echo "File opened.<br />";
 
