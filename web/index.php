@@ -61,7 +61,7 @@ function process_uploadfile($csv){
   $newarray=array();
   foreach($csv as $lines){
       $keywords=$lines[0];
-      $newarray=$keywords[0];
+      $newarray=$keywords;
       //foreach($keywords as $kw){
         //$kws=getKeywordSuggestionsFromGoogle($kw);
       //}
