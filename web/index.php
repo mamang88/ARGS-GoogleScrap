@@ -69,7 +69,7 @@ function process_uploadfile($csv){
       //echo $newarray;
       foreach ($kw as $kws) {
         $val=array();
-        $val[]=$kws
+        $val[]=$kws;
         array_push($newarray, $val);
       }
   }
