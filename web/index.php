@@ -71,7 +71,7 @@ function process_uploadfile($csv){
         array_push($newarray, $kws);
       }
   }
-  echo $newarray[0];
+  print_r ($newarray[0]);
 }
 
 function test_input($data) {
