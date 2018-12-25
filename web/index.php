@@ -72,6 +72,9 @@ function process_uploadfile($csv){
       }
   }
   print_r ($newarray[0]);
+  print_r ($newarray[1]);
+  print_r ($newarray[2]);
+
 }
 
 function test_input($data) {
