@@ -100,7 +100,7 @@ function process_uploadfile($csv){
 </tr>
 <tr>
 <td>Download </td>
-<td><input type="download" name="download" /></td>
+<td><input type="submit" name="download" /></td>
 </tr>
 
 
