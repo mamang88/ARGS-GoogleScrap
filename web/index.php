@@ -50,7 +50,7 @@ if ( isset($_POST["submit"]) ) {
             while( ($row = fgetcsv($fh, 8192)) !== FALSE ) {
               $lines[] = $row;
             }
-            process_uploadfile($lines);
+            if(!empty($lines))process_uploadfile($lines);
         }
      } else {
              echo "No file selected <br />";
