@@ -66,6 +66,7 @@
 				array_push($newarray, $val);
 			}
 		}
+		print_r($newarray);
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
