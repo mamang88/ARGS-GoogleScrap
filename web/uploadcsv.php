@@ -69,7 +69,7 @@
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-		if(!empty($tarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
+		array_to_csv_download($tarray,$_FILES["file"]["name"]);
 		echo "successfully downloaded";
 }
 ?>
