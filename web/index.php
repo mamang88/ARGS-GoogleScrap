@@ -73,28 +73,17 @@ function process_uploadfile($csv){
       }
   }
   array_push($firstline,$newarray);
-  array_to_csv_download($firstline,$_FILES["file"]["name"]);
+  if(empty($newarray))array_to_csv_download($firstline,$_FILES["file"]["name"]);
+    foreach ($array as $lines) {
+      echo $lines;
+    }
   /*
   foreach($newarray as $array) {
     foreach($array as $data)
       echo $data;
   } 
   */
-}
-function array_to_csv_download($array, $filename = "export.csv") {
-    header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="'.$filename.'turunan.csv";');
-
-    // open the "output" stream
-    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
-    $f = fopen('php://output', 'w');
-
-    foreach ($array as $lines) {
-      foreach ($lines as $line){ 
-         fputcsv($f, $line);
-      }
-    }
-  }   
+} 
 
 function test_input($data) {
   $text = trim($data);
