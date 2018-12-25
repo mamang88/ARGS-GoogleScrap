@@ -73,7 +73,6 @@ function process_uploadfile($csv){
         array_push($newarray, $val);
       }
   }
-  /*
   $output = fopen("php://output",'w') or die("Can't open php://output");
   header("Content-Type:application/csv"); 
   header("Content-Disposition:attachment;filename=".$_FILES["file"]["name"]." turunan.csv"); 
@@ -83,12 +82,12 @@ function process_uploadfile($csv){
       fputcsv($output, $data);
   }
   fclose($output) or die("Can't close php://output");
-  */
+  /*
   foreach($newarray as $array) {
     foreach($array as $data)
       echo $data;
   } 
-
+  */
 }
 
 function test_input($data) {
