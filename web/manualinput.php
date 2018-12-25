@@ -8,7 +8,7 @@
 <body>
 
 <?php  
-	include_file "baseengine.php";
+	include baseengine.php;
 	$comment =  "";
 	if (empty($_POST["comment"])) {
 		$comment = "";
