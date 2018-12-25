@@ -65,6 +65,7 @@ function process_uploadfile($csv){
       array_shift($kws);
       echo $kws;
       array_push($newarray,$lines);
+      echo $newarray;
       array_push($newarray, $kws);
   }
   echo $newarray;
