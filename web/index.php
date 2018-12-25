@@ -24,10 +24,10 @@ function getKeywordSuggestionsFromGoogle(string $keyword) {
     echo 'http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.urlencode($keyword);
     $data = file_get_contents('http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.urlencode($keyword));
     
-    echo '<br>'.$data.'<br>';
     if (($data = json_decode($data, true)) !== null) {
         $keywords = $data[1];
     }
+    echo '<br>'.$keywords.'<br>';
     return $keywords;
 }
 if ( isset($_POST["submit"]) ) {
