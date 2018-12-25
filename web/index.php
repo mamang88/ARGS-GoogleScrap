@@ -9,8 +9,6 @@
 
 <?php
 //define variables and set to empty values
-
-
 $comment =  "";
 
 
@@ -56,34 +54,46 @@ if ( isset($_POST["submit"]) ) {
              echo "No file selected <br />";
      }
 }
+function array_to_csv_download($array, $filename = "export.csv") {
+    header('Content-Type: application/csv');
+    header('Content-Disposition: attachment; filename="'.$filename.'turunan.csv";');
+
+    // open the "output" stream
+    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
+    $f = fopen('php://output', 'w') or die();
+    if (ob_get_contents()) ob_end_clean();
+    foreach ($array as $lines) {
+      $result = [];
+      array_walk_recursive($lines, function($item) use (&$result) {
+          $result[] = $item;
+      });
+      fputcsv($f, $result);
+    }
+    fclose($f);
+    die();
+}
+
 function process_uploadfile($csv){
   $firstline=array_shift($csv);
   $newarray=array();
   foreach($csv as $lines){
       $kwd=$lines[0];
       $kw=getKeywordSuggestionsFromGoogle($kwd);
-      
       array_push($newarray,$lines);
       foreach ($kw as $kws) {
         $val=array();
-        $val[]=$kws;
+        array_push($val,$kws);
         array_push($newarray, $val);
       }
   }
-  array_push($firstline,$newarray);
-  if(empty($newarray))array_to_csv_download($firstline,$_FILES["file"]["name"]);
-    foreach ($newarray as $lines) {
-     foreach($lines as $line);
-      echo "<br>"$line."<br>";
-    }
-  /*
-  foreach($newarray as $array) {
-    foreach($array as $data)
-      echo $data;
-  } 
-  */
-} 
+  $tarray=array();
+  array_push($tarray,$firstline);
+  $tarray+= $newarray;
+  //print_r($tarray);
 
+  if(!empty($newarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
+  
+} 
 function test_input($data) {
   $text = trim($data);
   //$text = stripslashes($text);
