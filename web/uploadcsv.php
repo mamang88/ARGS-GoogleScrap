@@ -9,11 +9,6 @@
 
 <?php  
 	include "baseengine.php";
-	$tarray=array();
-	if ( isset($_POST["download"]) ) {
-		if(!empty($tarray));
-		array_to_csv_download($tarray,$_FILES["file"]["name"]);
-	}
 	if ( isset($_POST["submit"]) ) {
 
 	if ( isset($_FILES["file"])) {
@@ -40,7 +35,7 @@
 		echo "No file selected <br />";
 		}
 	}
-function array_to_csv_download($array, $filename = "export.csv") {
+	function array_to_csv_download($array, $filename = "export.csv") {
 		header('Content-Type: application/csv');
 		header('Content-Disposition: attachment; filename="'.$filename.'turunan.csv";');
 
@@ -59,7 +54,7 @@ function array_to_csv_download($array, $filename = "export.csv") {
 		die();
 	}
 
-function process_uploadfile($csv){
+	function process_uploadfile($csv){
 		$firstline=array_shift($csv);
 		$newarray=array();
 		foreach($csv as $lines){
@@ -74,7 +69,11 @@ function process_uploadfile($csv){
 		}
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-	}
+		$tarray=array();
+		if ( isset($_POST["download"]) ) {
+			if(!empty($tarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
+			}
+}
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
 <div id="timestamp"></div>
