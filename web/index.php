@@ -28,7 +28,9 @@ function getKeywordSuggestionsFromGoogle(string $keyword) {
     if (($data = json_decode($data, true)) !== null) {
         $keywords = $data[1];
     }
-    echo '<br>'.$keywords.'<br>';
+    foreach ($keywords as $kw) {
+        echo "hasil: ".$kw."<br>";
+    }
     return $keywords;
 }
 if ( isset($_POST["submit"]) ) {
