@@ -61,11 +61,12 @@ function process_uploadfile($csv){
   $newarray=array();
   foreach($csv as $lines){
       $keywords=$lines[0];
-      echo $keywords[0];
-      foreach($keywords as $kw){
-        $kws=getKeywordSuggestionsFromGoogle($kw);
-      }
+      $newarray=$keywords[0];
+      //foreach($keywords as $kw){
+        //$kws=getKeywordSuggestionsFromGoogle($kw);
+      //}
   }
+  echo $newarray;
 }
 
 function test_input($data) {
