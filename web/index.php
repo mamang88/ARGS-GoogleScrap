@@ -20,12 +20,13 @@ $comment =  "";
     $comment = test_input($_POST["comment"]);
   }
 function getKeywordSuggestionsFromGoogle(string $keyword) {
-    $keywords = array();    
+    $keywords = array();
+    echo 'http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.urlencode($keyword);
+    echo 'http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.$keyword;
     $data = file_get_contents('http://suggestqueries.google.com/complete/search?output=firefox&client=firefox&hl=en-US&q='.urlencode($keyword));
     if (($data = json_decode($data, true)) !== null) {
         $keywords = $data[1];
     }
-    echo "hasil getcontent: ".$data.'<br>';
     return $keywords;
 }
 if ( isset($_POST["submit"]) ) {
