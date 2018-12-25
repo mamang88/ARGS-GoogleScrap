@@ -78,10 +78,9 @@
 
 <h3>Instruction</h3>
 <p>
-	1.File must be csv formated <br>
+	1.File must be .csv formated <br>
 	2.Keyword not more than 500 <br>
-	3.wait for success message before download <br>
-	4.Please be patient because this web running on low budget server, except you want to donate for upgrade :D<br>
+	3.Please be patient because this web running on low budget server, except you want to donate for upgrade :D<br>
 </p>
 
 <table width="600">
