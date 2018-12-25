@@ -9,8 +9,11 @@
 
 <?php  
 	include "baseengine.php";
+	$download=array();
+	if ( isset($_POST["download"]) ) {
+		if(!empty($download))array_to_csv_download($download,$_FILES["file"]["name"]);
+	}
 	if ( isset($_POST["submit"]) ) {
-
 	if ( isset($_FILES["file"])) {
 
 	//if there was an error tmping the file
@@ -70,9 +73,8 @@
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-		if ( isset($_POST["download"]) ) {
-			if(!empty($tarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
-			}
+		$download=$tarray;
+		echo "successfully uploaded";
 }
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
@@ -82,7 +84,8 @@
 <p>
 	1.File must be csv formated <br>
 	2.Keyword not more than 500 <br>
-	3.Please be patient because this web running on low budget server, except you want to donate for upgrade :D<br>
+	3.wait for success message before download <br>
+	4.Please be patient because this web running on low budget server, except you want to donate for upgrade :D<br>
 </p>
 
 <table width="600">
