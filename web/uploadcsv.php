@@ -67,9 +67,7 @@
 			}
 		}
 		$tarray=array();
-		array_push($tarray,$firstline);
-		$tarray+= $newarray;
-		print_r($tarray);
+		$tarray=array_merge($firstline,$newarray);
 		array_to_csv_download($tarray,$_FILES["file"]["name"]);
 		echo "successfully downloaded";
 }
