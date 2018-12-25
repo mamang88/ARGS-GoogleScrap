@@ -61,9 +61,10 @@ function process_uploadfile($csv){
   $newarray=array();
   foreach($csv as $lines){
       $keywords=$lines[0];
+      echo $keywords."\n";
       $kws=getKeywordSuggestionsFromGoogle($keywords);
-      array_shift($kws);
       echo $kws;
+      array_shift($kws);
       array_push($newarray,$lines);
       echo $newarray;
       array_push($newarray, $kws);
