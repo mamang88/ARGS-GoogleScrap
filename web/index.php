@@ -64,12 +64,12 @@ function process_uploadfile($csv){
       //echo $keywords."\n";
       $kws=getKeywordSuggestionsFromGoogle($keywords);
       echo $kws;
-      array_shift($kws);
+      //array_shift($kws);
       array_push($newarray,$lines);
       echo $newarray;
       array_push($newarray, $kws);
   }
-  echo $newarray;
+  //echo $newarray;
 }
 
 function test_input($data) {
