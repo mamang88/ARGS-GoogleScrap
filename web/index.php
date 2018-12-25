@@ -106,45 +106,11 @@ function test_input($data) {
 <h2>Google Scrapper BETA V.0.0.1</h2>
 <div id="timestamp"></div>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  
-  Base Keyword: <br>
-  <textarea name="comment" rows="20" cols="100"><?php
-  if($comment!=null) 
-foreach ($comment as $line) {
-    echo $line."\n";
-}; 
-  ?></textarea>
-  <br><br>
-  <input type="submit" name="submit" value="Submit">  
-</form>
+<br>
+<a href="https://args-googlescrapper.herokuapp.com/uploadcsv.php">upload csv file</a>
+<a href="https://args-googlescrapper.herokuapp.com/manualinput.php">input keyword manually</a>
 
-<h2>Result:</h2>
-<textarea name="comment" rows="20" cols="100"><?php
-  if($comment!=null) 
-    foreach ($comment as $line) {
-      $kw=getKeywordSuggestionsFromGoogle($line);
-      echo $line."\n";
-      foreach ($kw as $keywords) {
-        echo $keywords."\n";
-      }
-    }; 
-  ?></textarea>
-<table width="600">
-<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
 
-<tr>
-<td width="20%">Select file</td>
-<td width="80%"><input type="file" name="file" id="file" /></td>
-</tr>
-
-<tr>
-<td>Submit</td>
-<td><input type="submit" name="submit" /></td>
-</tr>
-
-</form>
-</table>
 <h5> Creator : Vlaus </h5>
 <h5>Last Update: 11/7/18 4:30PM GMT+7 </h5>
 </body>

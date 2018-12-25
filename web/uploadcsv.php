@@ -70,11 +70,18 @@
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-		if(!empty($newarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
+		if ( isset($_POST["download"]) ) array_to_csv_download($tarray,$_FILES["file"]["name"]);
 	}
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
 <div id="timestamp"></div>
+
+<h3>Instruction</h3>
+<p>
+	1.File must be csv formated <br>
+	2.Keyword not more than 500 <br>
+	3.Please be patient because this web running on low budget server, except you want to donate for upgrade :D<br>
+</p>
 
 <table width="600">
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
@@ -88,6 +95,11 @@
 <td>Submit</td>
 <td><input type="submit" name="submit" /></td>
 </tr>
+<tr>
+<td>Download </td>
+<td><input type="download" name="download" /></td>
+</tr>
+
 
 </form>
 </table>
