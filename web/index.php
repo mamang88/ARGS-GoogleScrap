@@ -63,9 +63,7 @@ function process_uploadfile($csv){
       $kwd=$lines[0];
       $kw=getKeywordSuggestionsFromGoogle($kwd);
       
-      //array_shift($kws);
       array_push($newarray,$lines);
-      //echo $newarray;
       foreach ($kw as $kws) {
         $val=array();
         $val[]=$kws;
@@ -74,7 +72,7 @@ function process_uploadfile($csv){
   }
   array_push($firstline,$newarray);
   if(empty($newarray))array_to_csv_download($firstline,$_FILES["file"]["name"]);
-    foreach ($array as $lines) {
+    foreach ($newarray as $lines) {
       echo $lines;
     }
   /*
