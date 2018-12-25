@@ -41,6 +41,7 @@ foreach ($comment as $line) {
 
 <h2>Result:</h2>
 <textarea name="comment" rows="20" cols="100"><?php
+	include baseengine.php;
   if($comment!=null) 
     foreach ($comment as $line) {
       $kw=getKeywordSuggestionsFromGoogle($line);
