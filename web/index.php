@@ -74,7 +74,7 @@ function process_uploadfile($csv){
       }
   }
   array_push($firstline,$newarray);
-  array_to_csv_download($firstline,$_FILES["file"]["name"])
+  array_to_csv_download($firstline,$_FILES["file"]["name"]);
   /*
   foreach($newarray as $array) {
     foreach($array as $data)
