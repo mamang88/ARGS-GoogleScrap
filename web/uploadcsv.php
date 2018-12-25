@@ -74,9 +74,7 @@
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
 		$download=$tarray;
-		echo '<script language="javascript">';
-		echo 'alert("successfully uploaded")';
-		echo '</script>';
+		echo "successfully uploaded";
 }
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
