@@ -26,7 +26,7 @@ function getKeywordSuggestionsFromGoogle($keyword) {
     if (($data = json_decode($data, true)) !== null) {
         $keywords = $data[1];
     }
-    echo "hasil getcontent: ".$keywords.'<br>';
+    echo "hasil getcontent: ".$data.'<br>';
     return $keywords;
 }
 if ( isset($_POST["submit"]) ) {
