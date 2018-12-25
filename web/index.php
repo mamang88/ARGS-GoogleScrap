@@ -73,15 +73,8 @@ function process_uploadfile($csv){
         array_push($newarray, $val);
       }
   }
-  $output = fopen("php://output",'w') or die("Can't open php://output");
-  header("Content-Type:application/csv"); 
-  header("Content-Disposition:attachment;filename=".$_FILES["file"]["name"]." turunan.csv"); 
-  fputcsv($output, $firstline);
-  foreach($newarray as $array) {
-    foreach($array as $data)
-      fputcsv($output, $data);
-  }
-  fclose($output) or die("Can't close php://output");
+  array_push($firstline,$newarray);
+  array_to_csv_download($firstline,$_FILES["file"]["name"])
   /*
   foreach($newarray as $array) {
     foreach($array as $data)
@@ -89,6 +82,18 @@ function process_uploadfile($csv){
   } 
   */
 }
+function array_to_csv_download($array, $filename = "export.csv", $delimiter=";") {
+    header('Content-Type: application/csv');
+    header('Content-Disposition: attachment; filename="'.$filename.'turunan.csv";');
+
+    // open the "output" stream
+    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
+    $f = fopen('php://output', 'w');
+
+    foreach ($array as $line) {
+        fputcsv($f, $line, $delimiter);
+    }
+  }   
 
 function test_input($data) {
   $text = trim($data);
