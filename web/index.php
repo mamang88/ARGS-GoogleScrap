@@ -91,6 +91,7 @@ function array_to_csv_download($array, $filename = "export.csv") {
     $f = fopen('php://output', 'w');
 
     foreach ($array as $line) {
+      echo $line;
         fputcsv($f, $line);
     }
   }   
