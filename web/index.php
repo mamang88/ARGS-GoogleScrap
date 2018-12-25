@@ -73,7 +73,8 @@ function process_uploadfile($csv){
   array_push($firstline,$newarray);
   if(empty($newarray))array_to_csv_download($firstline,$_FILES["file"]["name"]);
     foreach ($newarray as $lines) {
-      echo $lines;
+     foreach($lines as $line);
+      echo $line;
     }
   /*
   foreach($newarray as $array) {
