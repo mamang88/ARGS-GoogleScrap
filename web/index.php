@@ -74,13 +74,10 @@ function process_uploadfile($csv){
       }
   }
   for ($row = 0; $row < sizeof($newarray); $row++) {
-  echo "<p><b>Row number $row</b></p>";
-  echo "<ul>";
-  for ($col = 0; $col < sizeof($newarray[$row]); $col++) {
-    echo "<li>".$newarray[$row][$col]."</li>";
+    for ($col = 0; $col < sizeof($newarray[$row]); $col++) {
+      echo $newarray[$row][$col]."<br>";
+    }
   }
-  echo "</ul>";
-}
   
  
 
