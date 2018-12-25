@@ -9,9 +9,6 @@
 
 <?php  
 	include "baseengine.php";
-	$download=array();
-	if ( isset($_POST["download"]) ) {
-	}
 	if ( isset($_POST["submit"]) ) {
 	if ( isset($_FILES["file"])) {
 
@@ -100,9 +97,6 @@
 <td><input type="submit" name="submit" /></td>
 </tr>
 <tr>
-<td>Download </td>
-<td><input type="submit" name="download" /></td>
-</tr>
 
 
 </form>
