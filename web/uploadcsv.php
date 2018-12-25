@@ -11,7 +11,6 @@
 	include "baseengine.php";
 	$download=array();
 	if ( isset($_POST["download"]) ) {
-		if(!empty($download))array_to_csv_download($download,$_FILES["file"]["name"]);
 	}
 	if ( isset($_POST["submit"]) ) {
 	if ( isset($_FILES["file"])) {
@@ -73,8 +72,8 @@
 		$tarray=array();
 		array_push($tarray,$firstline);
 		$tarray+= $newarray;
-		$download=$tarray;
-		echo "successfully uploaded";
+		if(!empty($tarray))array_to_csv_download($tarray,$_FILES["file"]["name"]);
+		echo "successfully downloaded";
 }
 ?>
 <h2>Google Scrapper BETA V.0.0.1</h2>
