@@ -61,7 +61,6 @@ function process_uploadfile($csv){
   $newarray=array();
   foreach($csv as $lines){
       $kwd=$lines[0];
-      echo "base kw:".$kwd."<br>";
       $kw=getKeywordSuggestionsFromGoogle($kwd);
       
       //array_shift($kws);
