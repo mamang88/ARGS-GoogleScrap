@@ -73,13 +73,21 @@ function process_uploadfile($csv){
         array_push($newarray, $val);
       }
   }
-  for ($row = 0; $row < sizeof($newarray); $row++) {
-    for ($col = 0; $col < sizeof($newarray[$row]); $col++) {
-      echo $newarray[$row][$col]."<br>";
-    }
+  /*
+  $output = fopen("php://output",'w') or die("Can't open php://output");
+  header("Content-Type:application/csv"); 
+  header("Content-Disposition:attachment;filename=".$_FILES["file"]["name"]." turunan.csv"); 
+  fputcsv($output, $firstline);
+  foreach($newarray as $array) {
+    foreach($array as $data)
+      fputcsv($output, $data);
   }
-  
- 
+  fclose($output) or die("Can't close php://output");
+  */
+  foreach($newarray as $array) {
+    foreach($array as $data)
+      echo $data;
+  } 
 
 }
 
