@@ -59,10 +59,8 @@ if ( isset($_POST["submit"]) ) {
 function process_uploadfile($csv){
   $firstline=array_shift($csv);
   foreach($csv as $lines){
-    foreach($lines as $line){
       $keyword=$line[0];
       echo $keyword;
-    }
   }
 }
 
